@@ -266,7 +266,7 @@ body {
     .contain, .contain-memo {
         width: 100%;
         margin: 16px auto;
-        max-width: 300px;
+        max-width: 260px;
     }
     .memo-content,
     .memo-content.reverse {
@@ -297,4 +297,5 @@ body {
         height: 60px;
     }
 }
+
 
