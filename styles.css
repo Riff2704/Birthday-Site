@@ -263,10 +263,15 @@ body {
     body {
         padding: 12px;
     }
-    .contain, .contain-memo {
+    .contain {
         width: 100%;
         margin: 16px auto;
         max-width: 260px;
+    }
+    .contain-memo {
+        width: 100%;
+        margin: 16px auto;
+        max-width: 300px;
     }
     .memo-content,
     .memo-content.reverse {
@@ -297,5 +302,6 @@ body {
         height: 60px;
     }
 }
+
 
 
