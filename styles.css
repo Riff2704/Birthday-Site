@@ -25,6 +25,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-bottom: 5px solid #272c5b;
+    border-radius: 20px;
 
     padding: 10px 60px;
     margin: 20px auto;
@@ -50,6 +51,7 @@ body {
     flex-direction: column;
     justify-content: start;
     border-bottom: 5px solid #272c5b;
+    border-radius: 20px;
 
     padding: 10px 30px 40px 30px;
     margin: 20px auto;
@@ -302,6 +304,4 @@ body {
         height: 60px;
     }
 }
-
-
 
