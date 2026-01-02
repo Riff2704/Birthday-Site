@@ -4,7 +4,7 @@ body {
     font-family: "Happy Monkey", system-ui;
     text-shadow: 0px 0px 4px #ddb894;
 
-    background-color: #45436d;
+    background: linear-gradient(#45436d, black);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,6 +135,130 @@ body {
     pointer-events: none;
 }
 
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-items: center;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.polaroid-grid .polaroid:nth-child(1) { transform: rotate(-2deg); }
+.polaroid-grid .polaroid:nth-child(2) { transform: rotate(2deg); }
+.polaroid-grid .polaroid:nth-child(3) { transform: rotate(-1deg); }
+.polaroid-grid .polaroid:nth-child(4) { transform: rotate(3deg); }
+.polaroid-grid .polaroid:nth-child(5) { transform: rotate(-1deg); }
+.polaroid-grid .polaroid:nth-child(6) { transform: rotate(2deg); }
+
+.polaroid-grid .polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.song-list {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.song-card {
+    background: #5d6494;
+    border-bottom: 4px solid #272c5b;
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.song-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+.song-link:hover .song-card {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.album-cover {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.song-info {
+    flex: 1;
+    text-align: center;
+}
+
+.song-title {
+    margin: 0;
+    font-size: 16px;
+}
+
+.song-artist {
+    margin: 2px 0 8px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.song-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.bar {
+    flex: 1;
+    height: 4px;
+    background: #999;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: 40%; /* fake progress */
+    height: 100%;
+    background: whitesmoke;
+}
+
+.song-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+.song-controls button {
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 18px;
+    cursor: default;
+
+    cursor: default;
+    pointer-events: none;
+}
+
+.song-controls .play {
+    font-size: 22px;
+}
+
+.song-link:nth-child(1) .bar-fill { width: 40%; }
+.song-link:nth-child(2) .bar-fill { width: 65%; }
+.song-link:nth-child(3) .bar-fill { width: 55%; }
+
+
+
 @media (max-width: 768px) {
     body {
         padding: 12px;
@@ -159,6 +283,17 @@ body {
         max-width: 100%;
         font-size: 16px;
         line-height: 1.6;
+    }
+    .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .song-card {
+        align-items: flex-start;
+    }
+
+    .album-cover {
+        width: 60px;
+        height: 60px;
     }
 }
 
