@@ -1,0 +1,249 @@
+.pictures {
+    width: 200px;
+    max-width: 100%;
+    border: 8px solid whitesmoke;
+    border-bottom: 50px solid whitesmoke;
+
+}
+
+.polaroid {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 30%;
+    width: 60px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: rotate(-5deg);
+}
+
+.memo-content .polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.memo-content.reverse .polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.polaroid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.memo-content .polaroid {
+    transform: rotate(-3deg);
+}
+
+
+.memo-content.reverse .polaroid {
+    transform: rotate(3deg);
+}
+
+.caption {
+    margin-top: -35px;
+    font-size: 14px;
+    color: #444;
+    font-family: "Happy Monkey", cursive;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-items: center;
+    margin: 30px auto;
+    max-width: 900px;
+}
+.polaroid-grid .polaroid:nth-child(1) { transform: rotate(-2deg); }
+.polaroid-grid .polaroid:nth-child(2) { transform: rotate(2deg); }
+.polaroid-grid .polaroid:nth-child(3) { transform: rotate(-1deg); }
+.polaroid-grid .polaroid:nth-child(4) { transform: rotate(3deg); }
+.polaroid-grid .polaroid:nth-child(5) { transform: rotate(-1deg); }
+.polaroid-grid .polaroid:nth-child(6) { transform: rotate(2deg); }
+
+.polaroid-grid .polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.song-list {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.song-card {
+    background: #5d6494;
+    border-bottom: 4px solid #272c5b;
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.song-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+.song-link:hover .song-card {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.album-cover {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.song-info {
+    flex: 1;
+    text-align: center;
+}
+
+.song-title {
+    margin: 0;
+    font-size: 16px;
+}
+
+.song-artist {
+    margin: 2px 0 8px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.song-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.bar {
+    flex: 1;
+    height: 4px;
+    background: #999;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: 40%; /* fake progress */
+    height: 100%;
+    background: whitesmoke;
+}
+
+.song-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+.song-controls button {
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 18px;
+    cursor: default;
+
+    cursor: default;
+    pointer-events: none;
+}
+
+.song-controls .play {
+    font-size: 22px;
+}
+
+.song-link:nth-child(1) .bar-fill { width: 40%; }
+.song-link:nth-child(2) .bar-fill { width: 65%; }
+.song-link:nth-child(3) .bar-fill { width: 55%; }
+
+.memory-game {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.memory-game {
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        max-height 0.8s ease,
+        margin 0.6s ease;
+    max-height: 1000px; /* big enough for cards */
+}
+
+.memory-game.hide {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.memory-card {
+    aspect-ratio: 1 / 1;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.memory-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.memory-card.flip .memory-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-front,
+.memory-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    backface-visibility: hidden;
+}
+
+.memory-front {
+    background: #5d6494;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.memory-back {
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+}
