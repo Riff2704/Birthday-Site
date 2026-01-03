@@ -4,22 +4,40 @@
         <title>Rean's Birthday</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="components.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <!-- ================= Lock Screen ================= -->
+        <div class="lock-screen" id="lock-screen">
+            <div class="lock-box">
+                <div class="lock-icon">🔒</div>
+                <h2>Enter Passcode</h2>
+                <input
+                    type="password"
+                    id="passcode-input"
+                    placeholder="••••••••"
+                    maxlength="8"
+                >
+                <button id="unlock-btn">Unlock</button>
+                <p class="lock-error" id="lock-error">Wrong passcode</p>
+            </div>
+        </div>
+        <!-- ================= Birthday Profile ================= -->
         <div class="contain">
             <div id="starter">
                 <h1>Happy Birthday Rean🎉🎉!!</h1>
                 <img class="profile" src="images/gift.jpeg">
                 <h2>Rean is now not a minor (18 years old)</h2>
                 <h4>14.1.2008</h4>
-                <div cl>
+                <div >
                     <p>by Rafie (scroll down)</p>
                 </div>
             </div>
         </div>
+        <!-- ================= Memories ================= -->
         <div class="memories-header">
              <h1>
              My favourite memories together ^-^<br>
@@ -117,6 +135,7 @@
                 </div>
             </div>
         </div>
+        <!-- ================= Virtual Memories ================= -->
         <div class="memories-header">
              <h1>
              ♡My Virtual Memory with you throughout the year♡
@@ -130,6 +149,7 @@
             <div class="polaroid"><img class="pictures" src="images/roblox2.jpeg"></div>
             <div class="polaroid"><img class="pictures" src="images/roblox3.jpeg"></div>
         </div>
+        <!-- ================= Songs ================= -->
         <div class="memories-header">
              <h1>
              🎶Songs that Reminds me of you🎵
@@ -209,5 +229,35 @@
             </div>
         </a>
     </div>
+    <!-- ================= Card Memory Game ================= -->
+    <div class="memories-header">
+            <h1>🧠 A Little Memory Game</h1>
+            <p>Match all the memories for a message💜</p>
+    </div>
+    <div class="memory-game" id="memory-game"></div>
+    <div class="love-letter" id="love-letter">
+        <div class="letter-placeholder" id="letter-placeholder">
+            🔒 Finish the memory game to reveal the message
+        </div>
+        <!-- ================= Hidden Letter ================= -->
+        <h2>💌 For You</h2>
+            <p class="line">
+                A year ago from now, I've always wondered that if me and you were together, we would be so perfect for each other. I thought it was impossible due to our circumstances. But fate brought us here and I'm happy for it.
+            </p>
+
+            <p class="line">
+                You've always have been kind to me, even if you did (ever?) bully me from time to time, I know those are fun and jokes. Just so you know you have never done anything wrong to me. I hope you accept my apology on every mistake that I have made before.
+            </p>
+
+            <p class="line">
+                Last but not least, Happy 18th Birthday my Rean🤍.
+            </p>
+
+            <p class="line">
+                There's not a line in this world that I wouldn't cross for you
+            </p>
+    </div>
+    <script src="memory.js"></script>
+    <script src="lock.js"></script>
     </body>
 </html>
