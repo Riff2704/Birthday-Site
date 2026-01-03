@@ -25,7 +25,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-bottom: 5px solid #272c5b;
-    border-radius: 15px;
+    border-radius: 20px;
 
     padding: 10px 60px;
     margin: 20px auto;
@@ -51,7 +51,7 @@ body {
     flex-direction: column;
     justify-content: start;
     border-bottom: 5px solid #272c5b;
-    border-radius: 15px;
+    border-radius: 20px;
 
     padding: 10px 30px 40px 30px;
     margin: 20px auto;
@@ -77,189 +77,171 @@ body {
     line-height: 1.6;
 }
 
-.pictures {
-    width: 200px;
-    max-width: 100%;
-    border: 8px solid whitesmoke;
-    border-bottom: 50px solid whitesmoke;
 
-}
-
-.polaroid {
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease;
-    position: relative;
-}
-
-.polaroid::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: 30%;
-    width: 60px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transform: rotate(-5deg);
-}
-
-.memo-content .polaroid:hover {
-    transform: rotate(0deg) scale(1.03);
-}
-
-.memo-content.reverse .polaroid:hover {
-    transform: rotate(0deg) scale(1.03);
-}
-
-.polaroid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.memo-content .polaroid {
-    transform: rotate(-3deg);
-}
-
-
-.memo-content.reverse .polaroid {
-    transform: rotate(3deg);
-}
-
-.caption {
-    margin-top: -35px;
-    font-size: 14px;
-    color: #444;
-    font-family: "Happy Monkey", cursive;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.polaroid-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    justify-items: center;
-    margin: 30px auto;
-    max-width: 900px;
-}
-.polaroid-grid .polaroid:nth-child(1) { transform: rotate(-2deg); }
-.polaroid-grid .polaroid:nth-child(2) { transform: rotate(2deg); }
-.polaroid-grid .polaroid:nth-child(3) { transform: rotate(-1deg); }
-.polaroid-grid .polaroid:nth-child(4) { transform: rotate(3deg); }
-.polaroid-grid .polaroid:nth-child(5) { transform: rotate(-1deg); }
-.polaroid-grid .polaroid:nth-child(6) { transform: rotate(2deg); }
-
-.polaroid-grid .polaroid:hover {
-    transform: rotate(0deg) scale(1.03);
-}
-
-.song-list {
-    width: 100%;
-    max-width: 700px;
-    margin: 20px auto 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.song-card {
+.love-letter {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
     background: #5d6494;
-    border-bottom: 4px solid #272c5b;
+    border-bottom: 5px solid #272c5b;
     border-radius: 20px;
-    padding: 12px;
-    display: flex;
-    gap: 14px;
-    align-items: center;
-
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.song-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.love-letter.show h2 {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
-.song-link:hover .song-card {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+.love-letter.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.album-cover {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 6px;
+
+/* Letter starts hidden */
+.love-letter {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #5d6494;
+    border-bottom: 5px solid #272c5b;
 }
 
-.song-info {
-    flex: 1;
+
+/* Letter appears */
+.love-letter.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.love-letter .line {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.love-letter .line.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Locked placeholder */
+.letter-placeholder {
+    opacity: 0.6;
+    font-style: italic;
     text-align: center;
+    padding: 40px 20px;
 }
 
-.song-title {
-    margin: 0;
-    font-size: 16px;
+/* Hide placeholder once letter is revealed */
+.love-letter.show .letter-placeholder {
+    display: none;
 }
 
-.song-artist {
-    margin: 2px 0 8px;
-    font-size: 13px;
-    opacity: 0.8;
+.love-letter h2,
+.love-letter .line {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.song-progress {
+.love-letter h2,
+.love-letter .line {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* 🔒 Lock screen overlay */
+.lock-screen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(#45436d, black);
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12px;
-}
-
-.bar {
-    flex: 1;
-    height: 4px;
-    background: #999;
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.bar-fill {
-    width: 40%; /* fake progress */
-    height: 100%;
-    background: whitesmoke;
-}
-
-.song-controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
     justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.8s ease forwards;
 }
 
-.song-controls button {
-    background: none;
-    border: none;
-    color: whitesmoke;
+/* Lock container */
+.lock-box {
+    background: #5d6494;
+    padding: 30px 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: slideUp 0.8s ease forwards;
+}
+
+.lock-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.lock-box input {
+    margin-top: 12px;
+    padding: 10px;
     font-size: 18px;
-    cursor: default;
-
-    cursor: default;
-    pointer-events: none;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 180px;
 }
 
-.song-controls .play {
-    font-size: 22px;
+.lock-box button {
+    margin-top: 14px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: whitesmoke;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.song-link:nth-child(1) .bar-fill { width: 40%; }
-.song-link:nth-child(2) .bar-fill { width: 65%; }
-.song-link:nth-child(3) .bar-fill { width: 55%; }
+.lock-error {
+    margin-top: 10px;
+    color: #ffb3b3;
+    font-size: 14px;
+    opacity: 0;
+}
 
+/* Error animation */
+.lock-error.show {
+    opacity: 1;
+    animation: shake 0.3s;
+}
 
+/* Exit animation */
+.lock-screen.unlock {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
 
 @media (max-width: 768px) {
     body {
@@ -303,6 +285,8 @@ body {
         width: 60px;
         height: 60px;
     }
+
+    .memory-game {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
-
