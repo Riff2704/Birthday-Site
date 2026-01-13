@@ -57,7 +57,7 @@ cardsData.forEach(img => {
         lines.forEach((line, index) => {
         setTimeout(() => {
             line.classList.add("show");
-        }, index * 2500); // delay between lines
+        }, index * 5000); // delay between lines
         });
     }, 600);
 }
