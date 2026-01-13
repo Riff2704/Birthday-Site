@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="components.css">
+        <link rel="stylesheet" href="quiz.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -257,7 +258,27 @@
                 There's not a line in this world that I wouldn't cross for you
             </p>
     </div>
+    <h1>Just a silly quiz :p</h1>
+    <div class="quiz-wrapper">
+        <div class="quiz-card">
+            <div class="quiz-top">
+                <span id="progress">1 / 10</span>
+            </div>
+
+            <div id="quiz-box">
+                <h2 id="question">Question</h2>
+                <div id="choices" class="choices"></div>
+            </div>
+
+            <div id="result-box" class="hidden">
+                <h2>Your Score:</h2>
+                <p id="score-text"></p>
+            </div>
+        </div>
+    </div>
+    <div id="review" class="review hidden"></div>
     <script src="memory.js"></script>
     <script src="lock.js"></script>
+    <script src="quiz.js"></script>
     </body>
 </html>
