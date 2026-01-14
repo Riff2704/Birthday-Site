@@ -22,7 +22,7 @@ const questions = [
     {
         q: "urmms what is Rean's height",
         choices: ["157cm", "150cm", "155cm", "6'7"],
-        correct: 3
+        correct: 2
     }
 ];
 
